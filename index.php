@@ -1,17 +1,21 @@
 <?php
-		// phpinfo();
-    $link = new mysqli(
-        'localhost',
-        'root',
-        'maguofu',
-        'mydb'
-    );
-    if(!$link){
-      printf("Can't connect to MySQL Server. Errorcode: %s ", mysqli_connect_error()); 
-	    exit;
-    }else{
-      echo ('数据库连接上了！')."<br/>";   
+    // phpinfo();
+    $link = new mysqli('localhost',  'root', '123456');
+    // 检测连接 
+    if ($link->connect_error) { 
+        die("Connection failed: " . $conn->connect_error); 
+    } 
+    
+    // Create database
+    $sql = "CREATE DATABASE mydb";
+    if ($link->query($sql) === TRUE) {
+        echo "Database created successfully";
+    } else {
+        echo "Error creating database: " . $link->error;
     }
 
-    
-    mysqli_query($link,'set names utf8');    
+    $link->close();
+   
+
+
+  
