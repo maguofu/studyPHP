@@ -7,15 +7,15 @@
   };
 
   $sql = "create table student(
-    id int(10) not null auto_increment,
-    name varchar(50) not null default 'admin',
-    sex varchar(10) not null default 'boy',
-    age int(10) not null default 22,
-    calss int(10) not null default 5,
-    grade varchar(10) not null default '三年级',
-    address varchar(100) not null default '北京市',
+    id int(100) not null auto_increment,
+    name varchar(500) not null default 'admin',
+    sex varchar(100) not null default 'boy',
+    age int(100) not null default 22,
+    class int(100) not null default 5,
+    grade varchar(1000) not null default '三年级',
+    address varchar(10000) not null default '北京市',
     primary key (id)
-  )engine=innodb";
+  )engine=innodb charset=utf8";
   if($link->query($sql) === true){
     echo 'the table created successful';
   }else{
@@ -23,3 +23,7 @@
   }
 
   $link->close();
+
+
+
+  // 查看MySQL建标语句：show create table table_name
