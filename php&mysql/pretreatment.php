@@ -23,9 +23,9 @@
   }
 
   if(!$link->errno){
-    print_r('link success');
+    print_r('link success <br/>');
   }else{
-    print_r('link faild' . $link->connect_error);
+    print_r('link faild' . $link->connect_error . '<br/>');
   }
 
   //预处理 ?是标记
@@ -33,7 +33,7 @@
   $link->prepare($query);
 
   //绑定参数
-  $link->bindParam('ssiiss', $name, $sex, $age, $class, $grade, $address);
+  $link->bind_param('ssiiss', $name, $sex, $age, $class, $grade, $address);
 
   // 设置参数并执行
   $name = 'wanger';
