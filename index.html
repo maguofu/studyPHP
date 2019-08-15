@@ -2,12 +2,20 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="{%block name='head_charset'%}UTF-8{%/block%}">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <!-- 添加 meta 配置，引导 360 浏览器优先使用 webkit 内核渲染页面 -->
+  <meta name="renderer" content="webkit">
+  <meta name="description" content="{%block name='head_desc'%}{%/block%}">
+  <meta name="">
+  <!-- 添加 meta 配置，提升大搜检索召回。 -->
+  <meta name="keywords" content="{%block name='head_keywords'%}作业帮,一课,作业帮一课,一课作业帮,小学初高中辅导,直播课,答疑,作业帮下载,作业帮电脑版,作业帮app,作文,作业,问作业,寒假,暑假,答案{%/block%}">
   <title>Page Title</title>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
   <div id="main">
+    <img src="http://pic.58pic.com/58pic/15/63/07/42Q58PIC42U_1024.jpg" alt="">
     <p id="btn">点击</p>
   </div>
 </body>
