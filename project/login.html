@@ -71,6 +71,7 @@
         $confirmPsd = $('.confirmPsd'),
         $confirm = $('.confirm');
     var isLogup = $confirmPsd.attr('data-show');
+    var flag = 0;
 
 
     /* 
@@ -94,7 +95,7 @@
      $.ajax({
        type: 'POST',
        contentType: 'application/x-www-form-urlencoded',
-       url: '/project/index.php',
+       url: '/studyPHP/project/index',
        data: data,
        success: function(res){
          console.log(res)
@@ -104,6 +105,7 @@
 
     // 登陆按钮点击
     $login.on('click',function(){
+      flag = 2;
       resetBac();
       $login.addClass('height-line');
       $confirmPsd.hide();
@@ -113,6 +115,7 @@
 
     // 注册按钮点击
     $loginup.on('click',function(){
+      flag = 1;
       resetBac();
       $loginup.addClass('height-line');
       $confirmPsd.show();
@@ -128,15 +131,13 @@
       event.preventDefault();
       if(isLogup == 1){
         // 注册
-        confirmForm({flag: 1, nameValue: nameValue,padValue: padValue, confirmValue: confirmValue});
-
         if(!nameValue || !padValue || !confirmValue){
           alert('请填写完整');
           return false;
         }else if(padValue != confirmValue){
           alert('密码和确认密码不一致');
         }else{
-          confirmForm({flag: 1, nameValue: nameValue,padValue: padValue, confirmValue: confirmValue});
+          confirmForm({flag: flag, nameValue: nameValue,padValue: padValue, confirmValue: confirmValue});
         }
       }else{
         // 登陆
@@ -144,7 +145,7 @@
           alert('请填写完整');
           return false;
         }else{
-          confirmForm({flag: 2, nameValue: nameValue,padValue: padValue});
+          confirmForm({flag: flag, nameValue: nameValue,padValue: padValue});
         }
       }
     });
